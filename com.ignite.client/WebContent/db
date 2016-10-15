@@ -1,0 +1,135 @@
+# ************************************************************
+# Sequel Pro SQL dump
+# Version 4541
+#
+# http://www.sequelpro.com/
+# https://github.com/sequelpro/sequelpro
+#
+# Host: 192.168.1.110 (MySQL 5.7.15-0ubuntu0.16.04.1)
+# Database: ignite
+# Generation Time: 2016-10-11 19:01:22 +0000
+# ************************************************************
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table ACCOUNTS
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `ACCOUNTS`;
+
+CREATE TABLE `ACCOUNTS` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ACCOUNT_NUMBER` varchar(255) DEFAULT NULL,
+  `CREATION` datetime DEFAULT NULL,
+  `AVAILABILITY` double DEFAULT NULL,
+  `ID_CLIENT` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table CLIENT
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `CLIENT`;
+
+CREATE TABLE `CLIENT` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `FIRST_NAME` varchar(255) DEFAULT NULL,
+  `LAST_NAME` varchar(255) DEFAULT NULL,
+  `PID_NUMBER` int(11) DEFAULT NULL,
+  `ID_PASSWORD` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table LOG
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `LOG`;
+
+CREATE TABLE `LOG` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `WHEN` datetime DEFAULT NULL,
+  `MESSAGE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table PASSWORD
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `PASSWORD`;
+
+CREATE TABLE `PASSWORD` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `PASSWORD` varchar(255) DEFAULT NULL,
+  `WHEN` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table SETTINGS
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SETTINGS`;
+
+CREATE TABLE `SETTINGS` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `SETTINGS` varchar(255) DEFAULT NULL,
+  `ID_CLIENT` int(11) DEFAULT NULL,
+  `VALUE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table TELLER
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `TELLER`;
+
+CREATE TABLE `TELLER` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) DEFAULT NULL,
+  `USERNAME` varchar(255) DEFAULT NULL,
+  `PASSWORD` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table TRANSFER
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `TRANSFER`;
+
+CREATE TABLE `TRANSFER` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `WHEN` datetime DEFAULT NULL,
+  `AMOUNT` double DEFAULT NULL,
+  `ID_ACCOUNT_FROM` int(11) DEFAULT NULL,
+  `ID_ACCOUNT_TO` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
