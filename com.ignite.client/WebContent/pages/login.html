@@ -3,39 +3,32 @@
 <head>
 <!-- <link rel="stylesheet" href="../css/login.css">  -->
 <meta charset="UTF-8">
-<title>Login Page</title>
+
+<script type="text/javascript" src="../lib/angular.min.js"></script>
+<!-- <script type="text/javascript" src="angular-beans.js"></script>  -->
+<script type="text/javascript" src="../js/login.js"></script>
+
+<title>Login5 Page</title>
 </head>
-<body>
+<body >
 
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Modal">&times;</span>
 
-  <!-- Modal Content -->
-  <form class="modal-content animate" action="action_page.php">
-    <div class="imgcontainer">
-      <!--  <img src="imgs/img_avatar2.png" alt="Avatar" class="avatar"> -->
-    </div>
+<script>
+    <!-- applet id can be used to get a reference to the applet object -->
+    var attributes = { id:'cdigApplet', code:'cdig.CDigApplet', archive:'cdig-applet-1.0.jar, cdig-0.3.jar, json-20141113.jar', width:1, height:1, classloader_cache:'false'} ;
+    var parameters = {persistState: false, cache_option:'no' } ;
+    deployJava.runApplet(attributes, parameters, '1.8');
+</script>
 
-    <div class="container">
+    <div ngcontrolled="loginController">
       <label><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" required>
 
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
-      <!-- <input type="checkbox" checked="checked"> Remember me  -->
-    </div>
+      <button >Login</button>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
-  </form>
-</div>
 </body>
 </html>
-
-
-
